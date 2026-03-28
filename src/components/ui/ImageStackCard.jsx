@@ -102,6 +102,12 @@ export default function ImageStackCard({ images = [], title = "" }) {
 
               {/* Controls */}
               <button
+                onClick={() => setOpen(false)}
+                className="absolute top-6 right-6 px-3 py-1 rounded-full backdrop-blur-xl bg-white/40 border border-white/30 shadow-md hover:scale-110 transition"
+              >
+                ✕
+              </button>
+              <button
                 onClick={prev}
                 className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-xl px-4 py-2 rounded-xl border border-white/30"
               >
