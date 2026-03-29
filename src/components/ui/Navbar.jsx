@@ -8,7 +8,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -16,11 +16,26 @@ export default function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+      <div
+        className={`fixed left-0 right-0 z-50 flex justify-center px-4 transition-all duration-500 ${
+          scrolled ? "top-2" : "top-4"
+        }`}
+      >
         <div
-          className={`glass w-full max-w-5xl px-6 py-3 flex items-center justify-between transition-all duration-500 ${
-            scrolled ? "bg-white/40" : "bg-white/25"
-          }`}
+          className={`
+            glass w-full rounded-2xl max-w-5xl px-6 py-3
+            flex items-center justify-between
+            transition-all duration-500
+            ${scrolled ? "bg-white/30 shadow-lg border-white/40" : "bg-white/10 border-white/20"}
+          `}
+          style={{
+            backdropFilter: scrolled
+              ? "blur(24px) saturate(180%)"
+              : "blur(18px) saturate(160%)",
+            WebkitBackdropFilter: scrolled
+              ? "blur(24px) saturate(180%)"
+              : "blur(18px) saturate(160%)"
+          }}
         >
           {/* Logo */}
           <Link href="/" className="font-semibold text-lg">

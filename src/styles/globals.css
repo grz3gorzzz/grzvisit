@@ -11,15 +11,17 @@ html {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(20px) saturate(280%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+
   border: 1px solid rgba(255, 255, 255, 0.35);
+
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.08),
-    inset 0 1px 1px rgba(255,255,255,0.6),
-    inset 0 -1px 1px rgba(255,255,255,0.2);
+    inset 0 1px 0 rgba(255,255,255,0.7),
+    inset 0 -1px 0 rgba(255,255,255,0.2),
+    0 10px 30px rgba(0,0,0,0.08);
+
   position: relative;
   overflow: hidden;
 }
@@ -29,14 +31,15 @@ html {
   content: "";
   position: absolute;
   inset: 0;
+  border-radius: inherit;
   background: linear-gradient(
     120deg,
     rgba(255,255,255,0.6),
-    rgba(255,255,255,0.1) 40%,
+    rgba(255,255,255,0.2) 40%,
     rgba(255,255,255,0.05) 60%,
-    transparent
+    rgba(255,255,255,0.4)
   );
-  opacity: 0.6;
+  opacity: 0.35;
   pointer-events: none;
 }
 
@@ -45,8 +48,9 @@ html {
   content: "";
   position: absolute;
   inset: 0;
+  border-radius: inherit;
   background-image: url("/noise.png");
-  opacity: 0.04;
+  opacity: 0.05;
   pointer-events: none;
 }
 
